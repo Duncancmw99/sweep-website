@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help · Sweep</title>
+<meta name="description" content="Stuck? Quick answers for opening Sweep, signing in to Gmail, Outlook, AOL, Yahoo and iCloud, and finding emails you swept.">
+<meta name="theme-color" content="#172A46">
+<!-- PREVIEW: what WhatsApp, iMessage and Slack show when someone shares this page -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sweep">
+<meta property="og:title" content="Help with Sweep">
+<meta property="og:description" content="Quick answers for opening Sweep, signing in, and finding emails you swept.">
+<meta property="og:url" content="https://sweep.software/help.html">
+<meta property="og:image" content="https://sweep.software/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sweep: Your inbox, lighter by lunch. Emails are boring, sweeping is fun.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://sweep.software/help.html">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- The public version of SUPPORT.md: when you add an answer there, add it here too. Each answer has an id,
+     so you can send someone straight to it, e.g. https://sweep.software/help.html#mac-open -->
+<header class="page-hero">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="./"><img src="app-icon.png" alt="" width="40" height="40">Sweep</a>
+    <div class="nav-links">
+      <a href="./#how">How it works</a>
+      <a href="./#questions">Questions</a>
+      <a class="btn coral small" href="./#download">Download</a>
+    </div>
+  </nav>
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Help</div>
+      <h1>Stuck? Let's fix that.</h1>
+      <p class="lede">Quick answers to the things people bump into most. If yours isn't here, email <a class="lede-link" href="mailto:hello@sweep.software">hello@sweep.software</a> and we'll help.</p>
+    </div>
+  </div>
+</header>
+
+<main class="doc help">
+  <nav class="toc" aria-label="On this page">
+    <div>
+      <h3>Opening Sweep</h3>
+      <a href="#mac-open">Mac: “Apple could not verify Sweep”</a>
+      <a href="#mac-keychain">Mac: a Keychain question</a>
+      <a href="#windows-open">Windows: “Windows protected your PC”</a>
+      <a href="#updating">Updating to a new version</a>
+    </div>
+    <div>
+      <h3>Signing in</h3>
+      <a href="#google-unverified">Gmail: “Google hasn't verified this app”</a>
+      <a href="#google-delete">Gmail: “permanently delete”?</a>
+      <a href="#google-blocked">Gmail: “Access blocked” on a work account</a>
+      <a href="#outlook-mailbox">Outlook: “wouldn't open that mailbox”</a>
+      <a href="#outlook-admin">Outlook: needs an administrator</a>
+      <a href="#app-passwords">AOL, Yahoo, iCloud: wrong password</a>
+    </div>
+    <div>
+      <h3>Using Sweep</h3>
+      <a href="#where-emails">Where did my emails go?</a>
+      <a href="#still-sending">Unsubscribed, but they're still sending</a>
+      <a href="#percent">The % never reaches 100%</a>
+      <a href="#to-go">“To go” doesn't match my unread count</a>
+      <a href="#contact">Still stuck?</a>
+    </div>
+  </nav>
+
+  <h2>Opening Sweep</h2>
+
+  <h3 id="mac-open">Mac: “Sweep Not Opened” or “Apple could not verify Sweep”</h3>
+  <p>This early version isn't signed by Apple yet (that's coming before Sweep's full launch). To open it:</p>
+  <ol>
+    <li>Click <strong>Done</strong> on the message.</li>
+    <li>Open <strong>System Settings → Privacy &amp; Security</strong> and scroll down.</li>
+    <li>Next to the line about Sweep, click <strong>Open Anyway</strong>, then confirm with your Mac password or Touch ID.</li>
+    <li>Open Sweep again. From now on it opens normally.</li>
+  </ol>
+  <p>You'll need to do this once after each new download, until Sweep is signed by Apple.</p>
+
+  <h3 id="mac-keychain">Mac: Sweep wants to use something in your Keychain</h3>
+  <p>That's your saved sign-in, if you ticked “Stay signed in”. Enter your Mac password and click <strong>Always Allow</strong>. It asks once after each update, again until Sweep is signed by Apple.</p>
+
+  <h3 id="windows-open">Windows: “Windows protected your PC”</h3>
+  <p>Click <strong>More info</strong>, then <strong>Run anyway</strong>. Windows asks this about new apps it doesn't know yet. It goes away once the Windows version is signed.</p>
+  <p>Remember to unzip Sweep first: right-click the zip, choose <strong>Extract All…</strong>, then open <strong>Sweep</strong> in the new folder.</p>
+
+  <h3 id="updating">Updating to a new version</h3>
+  <ul>
+    <li><strong>Mac:</strong> quit Sweep, download it again from <a href="./#download">sweep.software</a>, drag it into Applications and choose <strong>Replace</strong>. Then follow <a href="#mac-open">the steps above</a> once.</li>
+    <li><strong>Windows:</strong> close Sweep, download the new zip, and extract it to the same place as before, choosing to replace the files.</li>
+  </ul>
+  <p>Your history, totals, trophies and saved sign-ins stay put: they're kept separately from the app.</p>
+
+  <h2>Signing in</h2>
+
+  <h3 id="google-unverified">Gmail: “Google hasn't verified this app”</h3>
+  <p>Expected for now: Google is still reviewing Sweep. Click <strong>Advanced</strong>, then <strong>Go to Sweep (unsafe)</strong>. On the next screen, tick the box that lets Sweep reach your Gmail and click <strong>Continue</strong>.</p>
+  <p>You sign in on Google's own page, so Sweep never sees your password. Your emails go straight from Google to your computer, nowhere else.</p>
+
+  <h3 id="google-delete">Gmail: why does Google say Sweep can “permanently delete” my email?</h3>
+  <p>That's Google's fixed wording for full access to a Gmail mailbox, the kind every email app gets, including Apple Mail and Outlook. Sweep never deletes anything: swept emails go to your Bin, and Undo brings them back.</p>
+
+  <h3 id="google-blocked">Gmail: “Access blocked” on a work or school account</h3>
+  <p>Some organisations only allow apps Google has finished verifying. Until it has, ask your IT team to allow Sweep, or sign in with an app password instead (if your organisation allows them):</p>
+  <ol>
+    <li>Turn on <strong>2-Step Verification</strong> at <a href="https://myaccount.google.com/security">myaccount.google.com/security</a>, if it isn't already.</li>
+    <li>Go to <a href="https://myaccount.google.com/apppasswords">myaccount.google.com/apppasswords</a>, make a password called “Sweep”, and paste it into Sweep's password box.</li>
+  </ol>
+
+  <h3 id="outlook-mailbox">Outlook or Hotmail: “Microsoft signed you in, but Outlook wouldn't open that mailbox”</h3>
+  <p>Microsoft's sign-in worked, but Outlook's mail server didn't let Sweep in. Try these in order:</p>
+  <ol>
+    <li>On <a href="https://outlook.live.com">outlook.com</a>, open <strong>Settings → Mail → Forwarding and IMAP</strong>, turn on <strong>Let devices and apps use IMAP</strong> and save. Reload the page and check it's still on, as it can switch itself back off.</li>
+    <li>Check the address in Sweep's message is your Outlook or Hotmail address. If it isn't, sign in again and choose <strong>Use another account</strong> on Microsoft's page.</li>
+    <li>Made your Outlook account in the last day? Wait a day and try again. Brand-new mailboxes can take a while before apps can connect.</li>
+    <li>Visit <a href="https://account.live.com/activity">account.live.com/activity</a> and, if you see a blocked sign-in, click <strong>This was me</strong>.</li>
+  </ol>
+
+  <h3 id="outlook-admin">Outlook work or school account: “needs an administrator to approve Sweep”</h3>
+  <p>Your organisation's IT team has to approve Sweep first, so send them a link to this page. Personal Outlook and Hotmail accounts don't need this.</p>
+
+  <h3 id="app-passwords">AOL, Yahoo or iCloud: “wrong password”</h3>
+  <p>These need an <strong>app password</strong>: a separate password just for Sweep, not your normal one. Sweep's sign-in screen links to the right page, or:</p>
+  <ul>
+    <li><strong>AOL:</strong> <a href="https://login.aol.com/account/security">login.aol.com/account/security</a> → Generate app password</li>
+    <li><strong>Yahoo:</strong> <a href="https://login.yahoo.com/account/security">login.yahoo.com/account/security</a> → Generate app password</li>
+    <li><strong>iCloud:</strong> <a href="https://account.apple.com">account.apple.com</a> → Sign-In and Security → App-Specific Passwords</li>
+  </ul>
+  <p>You can delete the app password at any time to cut Sweep off.</p>
+
+  <h2>Using Sweep</h2>
+
+  <h3 id="where-emails">Where did my emails go?</h3>
+  <p>Into your mailbox's <strong>Trash</strong> (Gmail calls it Bin), or <strong>Junk</strong> if you chose that. Nothing is deleted for good: click <strong>Undo</strong>, or find the sweep in Sweep's <strong>History</strong> tab and undo it there. Your email provider empties Trash after a while (30 days for Gmail), so bring back anything you need before then.</p>
+
+  <h3 id="still-sending">I unsubscribed, but they're still sending</h3>
+  <p>Some senders take a few days to process an unsubscribe. Sweep's <strong>History → Unsubscribes</strong> shows anyone still sending, with a button to sweep what's arrived since.</p>
+
+  <h3 id="percent">The “% lighter” never reaches 100%</h3>
+  <p>It's how much of your inbox you've cleared since Sweep opened, so it only hits 100% with an empty inbox. It starts again each time you open Sweep. Your all-time totals and trophies are in the <strong>Trophies</strong> tab.</p>
+
+  <h3 id="to-go">Quick Sweep's “to go” doesn't match my unread count</h3>
+  <p>Quick Sweep leaves out real people, senders who've emailed you just once (offered at the end), senders you kept and subjects you protected. The <strong>Detailed list</strong> shows everyone.</p>
+
+  <h2 id="contact">Still stuck?</h2>
+  <p>Email <a href="mailto:hello@sweep.software">hello@sweep.software</a> and tell us what you see. A screenshot helps a lot. On Windows, please also attach Sweep's log: press <strong>Windows + R</strong>, paste <strong>%APPDATA%\Sweep</strong>, press Enter and send the file called <strong>sweep.log</strong>. It never contains passwords or what your emails say.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./"><img src="app-icon.png" alt="" width="32" height="32">Sweep</a>
+        <p class="foot-tag">Emails are boring, sweeping is fun.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="./#how">How it works</a>
+        <a href="./#download">Download</a>
+        <a href="help.html">Help</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <p class="foot-fine">© 2026 Sweep Software Ltd. No ads, no cookies, no trackers. You are not the product.</p>
+    <p class="foot-legal">Sweep Software Ltd is registered in England and Wales, company number 17562049. Registered office: 18 Disbrowe Road, London, W6 8QF. <a href="mailto:hello@sweep.software">hello@sweep.software</a></p>
+  </div>
+</footer>
+</body>
+</html>
