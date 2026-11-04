@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweep · Inbox clean-up, made fun</title>
+<meta name="description" content="Sweep ranks everyone filling your inbox, then lets you unsubscribe and clear them out one card at a time. It runs on your computer, so your emails never go anywhere else.">
+<meta name="theme-color" content="#172A46">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-logo" viewBox="100 100 824 824">
+  <defs><linearGradient id="lg-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A4A7A"/><stop offset="1" stop-color="#172A46"/></linearGradient>
+  <clipPath id="lg-tile"><rect x="100" y="100" width="824" height="824" rx="185"/></clipPath></defs>
+  <g clip-path="url(#lg-tile)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#lg-bg)"/>
+    <circle cx="835" cy="179" r="235" fill="#FF6B5B"/><circle cx="430" cy="249" r="35" fill="#FF9A3C"/>
+    <circle cx="290" cy="734" r="260" fill="#fff" fill-opacity=".06"/>
+    <g transform="translate(515 534) rotate(40) scale(1 -1)">
+      <rect x="-17" y="90" width="34" height="430" rx="17" fill="#C98A55"/><rect x="4" y="90" width="13" height="430" rx="6" fill="#000" fill-opacity=".12"/>
+      <clipPath id="lg-head"><path d="M-62 100 L62 100 C120 40 165 -100 165 -215 C60 -245 -60 -245 -165 -215 C-165 -100 -120 40 -62 100Z"/></clipPath>
+      <path d="M-62 100 L62 100 C120 40 165 -100 165 -215 C60 -245 -60 -245 -165 -215 C-165 -100 -120 40 -62 100Z" fill="#FFC857"/>
+      <g clip-path="url(#lg-head)"><g stroke="#E8A93A" stroke-width="7"><path d="M-52.5 100 L-172.5 -240"/><path d="M-42 100 L-138 -240"/><path d="M-31.5 100 L-103.5 -240"/><path d="M-21 100 L-69 -240"/><path d="M-10.5 100 L-34.5 -240"/><path d="M0 100 L0 -240"/><path d="M10.5 100 L34.5 -240"/><path d="M21 100 L69 -240"/><path d="M31.5 100 L103.5 -240"/><path d="M42 100 L138 -240"/><path d="M52.5 100 L172.5 -240"/></g>
+        <rect x="-200" y="20" width="400" height="26" fill="#FF6B5B"/><rect x="-200" y="-30" width="400" height="14" fill="#FF6B5B"/></g>
+      <rect x="-70" y="88" width="140" height="44" rx="14" fill="#FF6B5B"/>
+    </g>
+    <path d="M228 674 L243.6 718.4 L288 734 L243.6 749.6 L228 794 L212.4 749.6 L168 734 L212.4 718.4Z" fill="#FFC857"/><path d="M345 802 L353.32 825.68 L377 834 L353.32 842.32 L345 866 L336.68 842.32 L313 834 L336.68 825.68Z" fill="#fff"/><path d="M190 568 L196.76 587.24 L216 594 L196.76 600.76 L190 620 L183.24 600.76 L164 594 L183.24 587.24Z" fill="#FFE1DD"/>
+  </g>
+</symbol>
+<symbol id="i-broom" viewBox="0 0 24 24"><path d="M20.6 3.4 13.4 10.6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path style="fill:var(--ic-b,#FFC857)" d="M10.4 9.9 14.1 13.6C13.6 16.9 11.4 19.9 7.6 21.4 5.4 20.3 3.7 18.6 2.6 16.4 4.1 12.6 7.1 10.4 10.4 9.9Z"/><path d="M9.2 13.6 5.6 18.6M11.4 14.9 8.5 20.2M7.6 12.4 4.3 16.4" stroke="#E8A93A" stroke-width=".9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.8 11.3 12.9 15.4" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path style="fill:var(--ic-a,#FF6B5B)" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="1" stroke-linejoin="round" d="M9.6 9.1 10.5 8.2 15.8 13.5 14.9 14.4Z"/></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><path d="M5.4 3.6 15 15.1M18.6 3.6 9 15.1" stroke="currentColor" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.2" cy="17.6" r="3" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="2.3" fill="none"/><circle cx="16.8" cy="17.6" r="3" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="2.3" fill="none"/><circle cx="12" cy="11.6" r="1.4" style="fill:var(--ic-b,#FFC857)"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path style="fill:var(--ic-a,#FF6B5B)" d="M12 20.6c-.3 0-.6-.1-.8-.3C6.4 16.5 2.6 13.4 2.6 9.1 2.6 6.3 4.7 4 7.4 4c1.8 0 3.4 1 4.6 2.6C13.2 5 14.8 4 16.6 4c2.7 0 4.8 2.3 4.8 5.1 0 4.3-3.8 7.4-8.6 11.2-.2.2-.5.3-.8.3z"/><path d="M6.2 7.8c.5-.9 1.3-1.5 2.3-1.6" stroke="#fff" stroke-opacity=".75" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-unread" viewBox="0 0 24 24"><rect x="2.8" y="6" width="16.4" height="13" rx="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.6 7.4 11 12.6l7.4-5.2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19.2" cy="6.2" r="3.4" style="fill:var(--ic-a,#FF6B5B)"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l7.6 2.9v5.9c0 4.7-3.2 8.6-7.6 10-4.4-1.4-7.6-5.3-7.6-10V5.5z"/><path d="M8.4 12.1l2.5 2.5 4.8-5" style="stroke:var(--ic-b,#FFC857)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M11 13 4.2 19.8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="9" r="5.6" style="fill:var(--ic-a,#FF6B5B)"/><circle cx="13.2" cy="7.2" r="1.6" fill="#fff" fill-opacity=".6"/></symbol>
+<symbol id="i-robot" viewBox="0 0 24 24"><path d="M12 3.6v3.4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="3" r="1.8" style="fill:var(--ic-a,#FF6B5B)"/><rect x="4.5" y="7" width="15" height="12.6" rx="4" fill="currentColor"/><circle cx="9.3" cy="12.6" r="1.8" style="fill:var(--ic-b,#FFC857)"/><circle cx="14.7" cy="12.6" r="1.8" style="fill:var(--ic-b,#FFC857)"/><rect x="9" y="16" width="6" height="1.5" rx=".75" style="fill:var(--ic-b,#FFC857)" opacity=".7"/><rect x="2.3" y="11" width="2.6" height="4.4" rx="1.3" style="fill:var(--ic-a,#FF6B5B)"/><rect x="19.1" y="11" width="2.6" height="4.4" rx="1.3" style="fill:var(--ic-a,#FF6B5B)"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><rect x="4.5" y="3" width="15" height="18.2" rx="2.4" fill="currentColor"/><path style="fill:var(--ic-b,#FFC857)" d="M7.3 6h2.2v2.2H7.3zM10.9 6h2.2v2.2h-2.2zM14.5 6h2.2v2.2h-2.2zM7.3 9.6h2.2v2.2H7.3zM10.9 9.6h2.2v2.2h-2.2zM14.5 9.6h2.2v2.2h-2.2zM7.3 13.2h2.2v2.2H7.3zM14.5 13.2h2.2v2.2h-2.2z"/><rect x="10.2" y="16.6" width="3.6" height="4.6" rx="1" style="fill:var(--ic-a,#FF6B5B)"/></symbol>
+<symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.2" fill="currentColor"/><path style="fill:var(--ic-a,#FF6B5B)" d="M3.8 20.3c.8-4.1 4.1-6.8 8.2-6.8s7.4 2.7 8.2 6.8a.9.9 0 0 1-.9 1.1H4.7a.9.9 0 0 1-.9-1.1z"/></symbol>
+<symbol id="i-people" viewBox="0 0 24 24"><circle cx="16.5" cy="7.6" r="3.3" fill="currentColor" opacity=".45"/><path fill="currentColor" opacity=".45" d="M11.8 19.6c.6-3.4 2.4-5.9 4.7-5.9 2.7 0 4.9 2.5 5.5 5.9.1.4-.2.8-.6.8h-9c-.4 0-.7-.4-.6-.8z"/><circle cx="9" cy="8.6" r="3.8" fill="currentColor"/><path style="fill:var(--ic-a,#FF6B5B)" d="M1.9 20.3c.7-3.8 3.6-6.3 7.1-6.3s6.4 2.5 7.1 6.3c.1.5-.3.9-.8.9H2.7c-.5 0-.9-.4-.8-.9z"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path style="fill:var(--ic-b,#FFC857)" d="M13.6 2.4 4.9 13.2c-.4.5 0 1.2.6 1.2h5.4l-1.4 7c-.1.6.6.9 1 .5l8.7-10.8c.4-.5 0-1.2-.6-1.2h-5.4l1.4-7c.1-.6-.6-.9-1-.5z"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><circle cx="5" cy="6.5" r="1.8" style="fill:var(--ic-a,#FF6B5B)"/><circle cx="5" cy="12" r="1.8" style="fill:var(--ic-b,#FFC857)"/><circle cx="5" cy="17.5" r="1.8" style="fill:var(--ic-a,#FF6B5B)"/><path d="M9.4 6.5h10.4M9.4 12h10.4M9.4 17.5h7" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7.2V12l3.4 2.2" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.4 12C4.6 7.6 8 5.4 12 5.4s7.4 2.2 9.6 6.6c-2.2 4.4-5.6 6.6-9.6 6.6S4.6 16.4 2.4 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.4" style="fill:var(--ic-a,#FF6B5B)"/><circle cx="13.1" cy="10.9" r="1" fill="#fff"/></symbol>
+<symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M2.4 12C4.6 7.6 8 5.4 12 5.4s7.4 2.2 9.6 6.6c-2.2 4.4-5.6 6.6-9.6 6.6S4.6 16.4 2.4 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/><path d="M4 4l16 16" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-clip" viewBox="0 0 24 24"><path d="M15.5 6.5 8.4 13.6a2.2 2.2 0 0 0 3.1 3.1l7.4-7.4a4.2 4.2 0 0 0-5.9-5.9L5.4 11a6.2 6.2 0 0 0 8.8 8.8l5.6-5.6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><path d="M7.6 10.4V7.6a4.4 4.4 0 0 1 8.8 0v2.8" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="4.6" y="10" width="14.8" height="11" rx="3" fill="currentColor"/><circle cx="12" cy="14.6" r="1.7" style="fill:var(--ic-b,#FFC857)"/><path d="M12 15.6v2.2" style="stroke:var(--ic-b,#FFC857)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path style="fill:var(--ic-a,#FF6B5B)" d="M10.4 3.6a1.85 1.85 0 0 1 3.2 0l8.2 14.6a1.85 1.85 0 0 1-1.6 2.8H3.8a1.85 1.85 0 0 1-1.6-2.8z"/><path d="M12 9v4.6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="17.1" r="1.25" fill="#fff"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 5.2H4.6v1.6A3.4 3.4 0 0 0 7.6 10.2M17 5.2h2.4v1.6a3.4 3.4 0 0 1-3 3.4" style="stroke:var(--ic-b,#FFC857)" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path style="fill:var(--ic-b,#FFC857)" d="M7 3.5h10v5.2a5 5 0 0 1-10 0z"/><path style="fill:var(--ic-a,#FF6B5B)" d="M12 4.9l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2-1.4-1.4 2-.3z"/><path d="M12 13.7v3.4" stroke="currentColor" stroke-width="2.2"/><rect x="7.6" y="17" width="8.8" height="3.8" rx="1.4" fill="currentColor"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path style="fill:var(--ic-b,#FFC857)" d="M10 2.6c.5 3.9 2.3 5.7 6.2 6.2-3.9.5-5.7 2.3-6.2 6.2-.5-3.9-2.3-5.7-6.2-6.2 3.9-.5 5.7-2.3 6.2-6.2z"/><path style="fill:var(--ic-a,#FF6B5B)" d="M17.6 12.6c.3 2.2 1.3 3.2 3.5 3.5-2.2.3-3.2 1.3-3.5 3.5-.3-2.2-1.3-3.2-3.5-3.5 2.2-.3 3.2-1.3 3.5-3.5z"/><circle cx="6.2" cy="18.6" r="1.6" fill="currentColor" opacity=".55"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.4" cy="10.4" r="6.4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.4 15.4 20.4 20.4" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path style="fill:var(--ic-a,#FF6B5B)" d="M12 21.6c-4 0-7-2.8-7-6.6 0-3.1 1.8-5 3.4-6.8 1.5-1.6 2.6-3.3 2.4-5.8 3.4 1.6 5.6 4.6 5.4 8.1.9-.6 1.4-1.6 1.5-2.7 1.5 1.5 2.3 3.6 2.3 5.7 0 4.3-3.2 8.1-8 8.1z"/><path style="fill:var(--ic-b,#FFC857)" d="M12 21.6c-2 0-3.4-1.4-3.4-3.2 0-2 1.6-3.1 2.6-4.9 2 1 4.2 2.8 4.2 5 0 1.8-1.4 3.1-3.4 3.1z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><rect x="3.5" y="11" width="4.2" height="9.5" rx="1.3" style="fill:var(--ic-b,#FFC857)"/><rect x="9.9" y="6.5" width="4.2" height="14" rx="1.3" style="fill:var(--ic-a,#FF6B5B)"/><rect x="16.3" y="3.5" width="4.2" height="17" rx="1.3" fill="currentColor"/></symbol>
+<symbol id="i-lifebuoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="12" cy="12" r="7" fill="none" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="4" stroke-dasharray="5.5 5.5" stroke-dashoffset="2.75"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4" style="fill:var(--ic-b,#FFC857)"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.5 1.5M17.1 17.1l1.5 1.5M5.4 18.6l1.5-1.5M17.1 6.9l1.5-1.5" style="stroke:var(--ic-b,#FFC857)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/><circle cx="16.8" cy="5.4" r="1.2" style="fill:var(--ic-b,#FFC857)"/><circle cx="20" cy="9" r=".9" style="fill:var(--ic-b,#FFC857)"/></symbol>
+<symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/><circle cx="8.6" cy="12" r="1.6" style="fill:var(--ic-b,#FFC857)"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.4 12a7.4 7.4 0 1 1-2.2-5.3" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path style="fill:var(--ic-a,#FF6B5B)" d="M20.6 3.4v6h-6z"/></symbol>
+<symbol id="i-junk" viewBox="0 0 24 24"><rect x="2.6" y="5.4" width="15.4" height="12" rx="2.4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.4 6.8 10.3 11.6l6.9-4.8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17.6" cy="16.6" r="4.8" style="fill:var(--ic-a,#FF6B5B)"/><path d="M15.3 16.6h4.6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7.2 4.4 11.8 9 16.4" style="stroke:var(--ic-a,#FF6B5B)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.8 11.8h9.8a4.6 4.6 0 0 1 0 9.2H12" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 2.6h7.4l5 5v12.2a1.8 1.8 0 0 1-1.8 1.8H6.4a1.8 1.8 0 0 1-1.8-1.8V4.4a1.8 1.8 0 0 1 1.8-1.8z"/><path style="fill:var(--ic-b,#FFC857)" d="M13.8 2.6v3.8a1.2 1.2 0 0 0 1.2 1.2h3.8z"/><path d="M8 12.4h8M8 15.8h5.6" style="stroke:var(--ic-b,#FFC857)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="hero">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="./"><img src="app-icon.png" alt="" width="40" height="40">Sweep</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#questions">Questions</a>
+      <a class="btn coral small" href="#download">Download</a>
+    </div>
+  </nav>
+  <div class="wrap hero-copy">
+    <div class="eyebrow">Inbox clean-up, made fun</div>
+    <h1>Your inbox,<br><em>lighter by lunch.</em></h1>
+    <p class="tagline">Emails are boring, sweeping is fun.</p>
+    <p class="lede">Sweep ranks everyone filling your inbox, then lets you unsubscribe and clear them out one card at a time. It runs on your computer, so your emails never go anywhere else.</p>
+    <div class="cta">
+      <a class="btn coral big" href="#download"><svg class="ic" aria-hidden="true"><use href="#i-broom"/></svg> Download for Mac</a>
+      <a class="btn ghost big" href="#download">Download for Windows</a>
+    </div>
+    <p class="fine">Free during early access · Gmail, AOL, Yahoo, iCloud and more</p>
+  </div>
+</header>
+
+<div class="shot-section">
+  <div class="wrap">
+    <figure class="window">
+      <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+      <img src="quick-sweep.jpg" srcset="quick-sweep.jpg 1280w, quick-sweep-2x.jpg 2560w" sizes="(min-width: 1136px) 1088px, calc(100vw - 32px)"
+           width="1280" height="820" alt="Sweep's Quick Sweep screen showing one sender, Pixel Social, with 590 emails and buttons to keep, sweep unread, sweep all, or unsubscribe and sweep. The sidebar shows the demo inbox is 51% lighter.">
+    </figure>
+  </div>
+  <span class="sticker s1" aria-hidden="true"><svg class="ic"><use href="#i-broom"/></svg> 1,430 emails gone</span>
+  <span class="sticker s2" aria-hidden="true"><svg class="ic"><use href="#i-scissors"/></svg> Unsubscribed</span>
+  <span class="sticker s3" aria-hidden="true"><svg class="ic"><use href="#i-flame"/></svg> 51% lighter</span>
+</div>
+
+<section id="how" class="after-shot">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps to a lighter inbox</h2>
+      <p>No new account, nothing to configure. Connect, look, sweep.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></div>
+        <h3>Connect your mailbox</h3>
+        <p>Gmail, AOL, Yahoo, iCloud or any email that supports IMAP. Sweep connects straight from your computer to your email provider.</p>
+      </div>
+      <div class="step">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg></div>
+        <h3>See who's filling it</h3>
+        <p>Every sender, ranked by how much they send you and how much of it you never open. People, company inboxes and newsletters are labelled for you.</p>
+      </div>
+      <div class="step">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-broom"/></svg></div>
+        <h3>Sweep, one card at a time</h3>
+        <p>Keep them, sweep them, or unsubscribe and sweep in one go. Thousands of emails gone in minutes, with confetti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flush">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Made for the satisfying bit</div>
+      <h2>Everything you need, nothing you don't</h2>
+    </div>
+    <div class="features">
+      <div class="feature wide">
+        <div>
+          <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></div>
+          <h3>Quick Sweep, at keyboard speed</h3>
+          <p>One sender at a time. Arrow down to sweep, up to unsubscribe, right to skip, left to go back. You'll be done before the kettle boils.</p>
+        </div>
+        <div class="keys" aria-label="Keyboard shortcuts: up to unsubscribe, left to go back, down to sweep, right to skip">
+          <span class="key up">↑<small>Unsub</small></span>
+          <span class="key left">←<small>Back</small></span>
+          <span class="key down">↓<small>Sweep</small></span>
+          <span class="key right">→<small>Skip</small></span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg></div>
+        <h3>Unsubscribe in a click</h3>
+        <p>Sweep uses the sender's one-click unsubscribe, sends the unsubscribe email for you, or finds the link hidden in their emails.</p>
+      </div>
+      <div class="feature">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></div>
+        <h3>Sweep by subject</h3>
+        <p>Similar subjects are grouped, so you can clear every “Your order has shipped” at once, and protect the ones you want to keep.</p>
+      </div>
+      <div class="feature">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-undo"/></svg></div>
+        <h3>Undo anything</h3>
+        <p>Changed your mind? Every sweep can be undone. Nothing is ever permanently deleted: it all goes to your Trash.</p>
+      </div>
+      <div class="feature">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-eyeoff"/></svg></div>
+        <h3>Read without being tracked</h3>
+        <p>Open any email inside Sweep. Tracking images stay blocked until you choose, and reading doesn't mark anything as read.</p>
+      </div>
+      <div class="feature">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-people"/></svg></div>
+        <h3>All your inboxes</h3>
+        <p>Sign in to more than one mailbox and switch between them. Each keeps its own history.</p>
+      </div>
+      <div class="feature wide">
+        <div>
+          <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-robot"/></svg></div>
+          <h3>Know who's who</h3>
+          <p>Every sender is labelled: a real person, a company's shared inbox, or something automated. People are left out of Quick Sweep unless you add them, so you never sweep your mum by mistake.</p>
+        </div>
+        <div class="kinds" aria-hidden="true">
+          <span class="kind k-person"><svg class="ic"><use href="#i-person"/></svg> Person</span>
+          <span class="kind k-team"><svg class="ic"><use href="#i-building"/></svg> Company inbox</span>
+          <span class="kind k-auto"><svg class="ic"><use href="#i-robot"/></svg> Automated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Private by design</div>
+      <h2>Your emails never <em>reach us.</em></h2>
+      <p>Many inbox cleaners process your email on their own servers. Sweep doesn't have any. It runs on your computer and talks to your email provider, and that's it.</p>
+    </div>
+    <div class="promises">
+      <div class="promise">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></div>
+        <h3>Runs on your computer</h3>
+        <p>Your emails go straight from your email provider to your Mac or PC. Your password goes only to your provider, too.</p>
+      </div>
+      <div class="promise">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
+        <h3>No accounts, no tracking</h3>
+        <p>No Sweep account to make, no analytics, no adverts. We don't know who you are or what's in your inbox.</p>
+      </div>
+      <div class="promise">
+        <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-lifebuoy"/></svg></div>
+        <h3>Nothing permanently deleted</h3>
+        <p>Swept emails go to your Trash, where you (or Sweep's Undo) can get them back.</p>
+      </div>
+    </div>
+    <p class="band-foot">Want the detail? <a href="privacy.html">Here's everything Sweep connects to</a>. This website has no cookies or trackers either.</p>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="early"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg> Early access</span>
+      <h2>Get Sweep</h2>
+      <p>Sweep is free while it's in early access. Thanks for trying it!</p>
+    </div>
+    <div class="downloads">
+      <div class="dl">
+        <h3>Mac</h3>
+        <p class="meta">macOS 12 or later · Apple Silicon and Intel · 29 MB</p>
+        <a class="btn coral" href="https://github.com/Duncancmw99/sweep-website/releases/latest/download/Sweep.dmg" download><svg class="ic" aria-hidden="true"><use href="#i-broom"/></svg> Download for Mac</a>
+        <ol>
+          <li>Open the download and drag <b>Sweep</b> into <b>Applications</b>.</li>
+          <li>Open Sweep. This early version isn't signed by Apple yet, so your Mac stops it: click <b>Done</b>.</li>
+          <li>Go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>.</li>
+          <li>Open Sweep again and confirm. From then on it opens like any other app.</li>
+        </ol>
+      </div>
+      <div class="dl">
+        <h3>Windows</h3>
+        <p class="meta">Windows 10 or 11 · 13 MB</p>
+        <a class="btn coral" href="https://github.com/Duncancmw99/sweep-website/releases/latest/download/Sweep-Windows.zip" download><svg class="ic" aria-hidden="true"><use href="#i-broom"/></svg> Download for Windows</a>
+        <ol>
+          <li>Right-click the download, choose <b>Extract All</b>, and keep the Sweep folder somewhere handy like Documents.</li>
+          <li>Open the folder and double-click <b>Sweep</b>.</li>
+          <li>If Windows says it can't verify the app, click <b>More info → Run anyway</b>.</li>
+          <li>Sweep adds itself to your Start menu for next time.</li>
+        </ol>
+        <p class="note">The Windows version is brand new. If anything goes wrong, a screenshot helps a lot.</p>
+      </div>
+    </div>
+    <div class="signin">
+      <div class="badge-ic"><svg class="ic" aria-hidden="true"><use href="#i-unread"/></svg></div>
+      <div>
+        <h3>Signing in</h3>
+        <p>For now, Gmail, AOL, Yahoo and iCloud use an <b>app password</b>: a separate password just for Sweep, which you make in your email account's security settings. Sweep shows you exactly where. One-click “Sign in with Google” and Outlook support are on the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="questions" class="flush">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions</div>
+      <h2>Good to know</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Can you see my emails?</summary>
+        <p>No. Sweep runs on your computer and connects straight to your email provider. There's no Sweep server for your emails to go to, so we never see them. <a href="privacy.html">Read exactly what Sweep connects to.</a></p>
+      </details>
+      <details>
+        <summary>Does Sweep delete my emails?</summary>
+        <p>It moves them to your Trash (or Junk, if you choose), never deletes them for good. Every sweep has an Undo button, and your email provider keeps Trash for a while after that too.</p>
+      </details>
+      <details>
+        <summary>Does opening an email in Sweep mark it as read?</summary>
+        <p>No. Emails stay exactly as they were, and tracking images stay blocked unless you choose to show them.</p>
+      </details>
+      <details>
+        <summary>Which email providers work?</summary>
+        <p>Gmail, AOL, Yahoo, iCloud, and any provider that supports IMAP (most do). Outlook and Hotmail are coming soon.</p>
+      </details>
+      <details>
+        <summary>What's an app password?</summary>
+        <p>A separate password your email provider makes just for one app, so Sweep never needs your main password. You can delete it any time to cut Sweep off. Sweep's sign-in screen links you to the right page for Gmail, AOL, Yahoo and iCloud.</p>
+      </details>
+      <details>
+        <summary>Why does my Mac warn me when I first open it?</summary>
+        <p>This early version isn't signed by Apple yet. That's coming before Sweep's full launch, and then it will open straight away like any other app.</p>
+      </details>
+      <details>
+        <summary>How much does it cost?</summary>
+        <p>Sweep is free during early access.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./"><img src="app-icon.png" alt="" width="32" height="32">Sweep</a>
+        <p class="foot-tag">Emails are boring, sweeping is fun.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#download">Download</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <p class="foot-fine">© 2026 Sweep. No cookies, no trackers, no servers reading your email.</p>
+  </div>
+</footer>
+</body>
+</html>
